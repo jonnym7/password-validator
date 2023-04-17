@@ -6,22 +6,18 @@
 </head>
 <body>
 	<div class="container">
+		<div class="title"><h1>Create a Password:</h1></div>
 		<div class="box">
-			<input type="password" class="input-field" placeholder="Enter new password">
-			<button class="btn">Submit</button>
+			<input type="text" id="password" class="input-field" placeholder="Enter new password">
+			<button class="btn" onclick="isLongEnough(), hasLowerCase(), hasUpperCase(), hasNumber(), hasSpecial(), validate()">Submit</button>
 		</div>
 		<div class="rules">
 			Password Rules:
-			<br>
-			- Must be a minimum of 8 characters
-			<br>
-			- Must contain at least one lower case letter
-			<br>
-			- Must contain at least one upper case letter
-			<br>
-			- Must contain at least one numeric value
-			<br>
-			- Must contain at least one special character
+			<br><span id="longEnough" class="">- Must be a minimum of 8 characters</span>
+			<br><span id="lower" class="">- Must contain at least one lower case letter</span>
+			<br><span id="capital" class="">- Must contain at least one upper case letter</span>
+			<br><span id="number" class="">- Must contain at least one numeric value</span>
+			<br><span id="special" class="">- Must contain at least one special character</span>
 		</div>
 	</div>
 </body>
