@@ -43,8 +43,8 @@ function hasUpperCase () {
 function hasNumber () {
     let pswd = document.getElementById("password").value
     
-    for (let i = 0; i < pswd.length; i++) {
-        if (pswd[i] == Number(pswd[i])) {
+    for (let i = 0; i < pswd.length; i++) {//because you are looping through, if the password does not end in a number then the class list will have invalid.
+        if (pswd[i] == Number(pswd[i])) {//The last character would hit the else statement. Therefore we want to add a break in the logic for the first if (in my refactor I did a return as that will end a loop)
             number.classList.remove("invalid");
             number.classList.add("valid");
         } else {
@@ -59,7 +59,7 @@ function hasSpecial () {
     let pswd = document.getElementById("password").value
     let specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "[", "]", "{", "}", ":", ";", "?", ">", "<", ".", "/", "|",]
 
-    for (let i = 0; i < pswd.length; i++) {
+    for (let i = 0; i < pswd.length; i++) {//same issue as with the number function
         if (specialChars.indexOf(pswd[i]) >=0 ) {
             special.classList.remove("invalid");
             special.classList.add("valid");
@@ -93,3 +93,82 @@ function validate () {
     }
 
 }
+
+
+/* Here is my example of your code refactored to remove some of the redundancies. There was a change made to a line in the html if you want to reference.
+
+function validate () {
+    let password = document.getElementById("password").value
+    if (isLongEnough(password) && hasLowerCase(password) && hasUpperCase(password) && hasNumber(password) && hasSpecial(password)) {
+        alert("Password is valid");
+    } else {
+        alert ("Please enter a valid password")
+    }
+}
+
+//validate 8 characters
+function isLongEnough (pswd) {
+    let minLength = 8;
+    if (pswd.length >= minLength) {
+        changeClass(longEnough, true)
+        return true
+    } else {
+        changeClass(longEnough, false)
+    }
+}
+
+// validate 1 lowercase
+function hasLowerCase (pswd) {
+    if (pswd.toUpperCase() != pswd ) {
+        changeClass(lower, true)
+        return true
+    } else {
+        changeClass(lower, false)
+    }
+}
+
+// validate 1 capital
+function hasUpperCase (pswd) {
+    if (pswd.toLowerCase() != pswd ) {
+        changeClass(capital, true)
+        return true
+    } else {
+        changeClass(capital, false)
+    }
+}
+
+// validate 1 number
+function hasNumber (pswd) {
+    for (let i = 0; i < pswd.length; i++) {
+        if (pswd[i] == Number(pswd[i])) {
+            changeClass(number, true)
+            return true
+        } else {
+            changeClass(number, false)
+        }
+    }
+}
+
+// validate 1 special character
+function hasSpecial (pswd) {
+    let specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "[", "]", "{", "}", ":", ";", "?", ">", "<", ".", "/", "|",]
+    for (let i = 0; i < pswd.length; i++) {
+        if (specialChars.indexOf(pswd[i]) >=0 ) {
+            changeClass(special, true)
+            return true
+        } else {
+            changeClass(special, false)
+        }
+    }
+}
+
+function changeClass(id, setToValid){
+    if (setToValid){
+        id.classList.remove("invalid")
+        id.classList.add("valid")
+    } else{
+        id.classList.remove("valid")
+        id.classList.add("invalid")
+    }
+}
+*/
