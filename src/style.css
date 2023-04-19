@@ -7,21 +7,31 @@
     background-color: #f2f2f2;
 }
 
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+
+
 .box {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
+    border-radius: 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .input-field {
     height: 40px;
     width: 200px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 5px;
+    margin-right: 0px;
+    padding: 0 0 0 15px;
+    border-radius: 100px 0 0 100px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
@@ -32,8 +42,10 @@
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 0 100px 100px 0;
     font-size: 16px;
+    border: 1px solid #ccc;
     cursor: pointer;
 }
 
@@ -42,4 +54,12 @@
     text-align: center;
     font-size: 14px;
     color: #666;
+}
+
+.valid {
+    color: green; font-weight: bold;
+}
+
+.invalid {
+    color: red; font-weight: bold;
 }
